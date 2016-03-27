@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/XsGridApp.iml" filepath="$PROJECT_DIR$/XsGridApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/xsgrid/xsgrid.iml" filepath="$PROJECT_DIR$/xsgrid/xsgrid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xsgridimgload/xsgridimgload.iml" filepath="$PROJECT_DIR$/xsgridimgload/xsgridimgload.iml" />
     </modules>
   </component>
 </project>

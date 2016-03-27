@@ -18,7 +18,9 @@ import com.xs.xsgrid.R;
 import com.xs.xsgrid.adater.BAdapter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @version V1.0 <描述当前版本功能>
@@ -138,10 +140,12 @@ public class SelectImageFragment extends Fragment {
     }
 
     public void setImageContent() {
-        ArrayList content = new ArrayList();
-        ImageView imageView = new ImageView(getActivity());
-        imageView.setBackground(getResources().getDrawable(R.mipmap.icon_addpic_unfocused));
-        content.add(imageView);
+        List<String> content = new ArrayList();
+        /*ImageView imageView = new ImageView(getActivity());
+        content.add("http://p2008.zbjimg.com/task/2009-08/05/121253/s78zlmih.jpg");*/
+        String a ="http://p2008.zbjimg.com/task/2009-08/05/121253/s78zlmih.jpg";
+        content.add(a);
+
         this.mAdapter.addListData(content);
         this.setGridViewHeight(this.mGridView);
 
@@ -158,7 +162,7 @@ public class SelectImageFragment extends Fragment {
         }
 
         public View getView(int i, View view, ViewGroup viewGroup) {
-            Log.i("test", "CCCC" + i);
+            Log.i("test", "CCCC" + mListData.size());
 
             view = this.mInflater.inflate(R.layout.layout_sel_img_item, viewGroup, false);
             ImageView iv = (ImageView)view.findViewById(R.id.iv);

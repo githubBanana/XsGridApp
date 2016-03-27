@@ -1,1 +1,1 @@
-include ':app', ':xsgrid'
+include ':app', ':xsgrid', ':xsgridimgload'
