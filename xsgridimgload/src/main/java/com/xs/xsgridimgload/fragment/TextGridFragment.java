@@ -12,6 +12,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import com.xs.xsgridimgload.R;
+import com.xs.xsgridimgload.adapter.TextGridViewAdapter;
 import com.xs.xsgridimgload.utils.PhoneInfo;
 
 import java.util.ArrayList;
@@ -54,43 +55,9 @@ public class TextGridFragment extends Fragment{
     }
 
     public void importData(List<String> datas) {
-        mAdapter = new TextGridViewAdapter(datas);
+        mAdapter = new TextGridViewAdapter(getActivity(),datas);
         mGridView.setAdapter(mAdapter);
     }
 
-    private class TextGridViewAdapter extends BaseAdapter {
 
-        private List<String> datas;
-
-        public TextGridViewAdapter(List<String> datas) {
-            this.datas =datas;
-        }
-        @Override
-        public int getCount() {
-            return datas.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return position;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            Log.i(TAG, "position:" + position + " data.size=" + datas.size() + " str:" + datas.get(position));
-            final TextView textView = new TextView(getActivity());
-            textView.setText(datas.get(position));
-
-            textView.setPadding(50, 0, 50, 0);
-            textView.setTextColor(getResources().getColor(R.color.color_black));
-            textView.setTextSize(15f);
-            return textView;
-        }
-
-    }
 }

@@ -1,6 +1,7 @@
 package com.xs.xsgridimgload.test;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.xs.xsgridimgload.R;
+import com.xs.xsgridimgload.adapter.ImageGridViewAdapter;
 import com.xs.xsgridimgload.fragment.TextGridFragment;
 
 import java.util.ArrayList;
@@ -18,7 +20,7 @@ import java.util.List;
  * @author: Xs
  * @date: 2016-03-28 00:03
  */
-public class TestActivity extends AppCompatActivity {
+public class TestActivity extends AppCompatActivity implements ImageGridViewAdapter.OnListenCallback {
     private static final String TAG = "TestActivity";
 
 
@@ -41,5 +43,11 @@ public class TestActivity extends AppCompatActivity {
         datas.add("#嘻哈丰富2");
         datas.add("#嘻哈丰富5");
         return datas;
+    }
+
+    @Override
+    public void touchPic(Intent intent) {
+        startActivity(intent);
+        overridePendingTransition(0, 0);
     }
 }

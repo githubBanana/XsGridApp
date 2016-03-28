@@ -24,6 +24,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.xs.xsgridimgload.R;
+import com.xs.xsgridimgload.adapter.ImageGridViewAdapter;
 import com.xs.xsgridimgload.utils.BitmapSampleUtil;
 import com.xs.xsgridimgload.view.SpaceImageDetailActivity;
 import com.xs.xsgridimgload.view.SquareCenterImageView;
@@ -37,7 +38,7 @@ import java.util.List;
  * @author: Xs
  * @date: 2016-03-28 00:10
  */
-public class ImageGridFragment extends Fragment{
+public class ImageGridFragment extends Fragment {
     private static final String TAG = "GridFragment";
 
     public static DisplayImageOptions mNormalImageOptions;
@@ -65,7 +66,7 @@ public class ImageGridFragment extends Fragment{
         List<String> datas = new ArrayList<>();
         for (int i = 0;i < 5;i++)
             datas.add(BitmapSampleUtil.getBmpUrl());
-        mGridView.setAdapter(new ImageGridViewAdapter(datas));
+        mGridView.setAdapter(new ImageGridViewAdapter(getActivity(),datas));
     }
 
     private void initImageLoader(Context context) {
@@ -99,51 +100,4 @@ public class ImageGridFragment extends Fragment{
         ImageLoader.getInstance().init(config);
     }
 
-    private class ImageGridViewAdapter extends BaseAdapter{
-
-        private List<String> datas;
-        public ImageGridViewAdapter(List<String> datas) {
-            this.datas = datas;
-        }
-
-        @Override
-        public int getCount() {
-            return datas.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return position;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(final int position, View convertView, ViewGroup parent) {
-            final SquareCenterImageView imageView = new SquareCenterImageView(getActivity());
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            ImageLoader.getInstance().displayImage(datas.get(position), imageView);
-            imageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(getActivity(), SpaceImageDetailActivity.class);
-                    intent.putExtra("images", (ArrayList<String>) datas);
-                    intent.putExtra("position", position);
-                    int[] location = new int[2];
-                    imageView.getLocationOnScreen(location);
-                    intent.putExtra("locationX", location[0]);
-                    intent.putExtra("locationY", location[1]);
-
-                    intent.putExtra("width", imageView.getWidth());
-                    intent.putExtra("height", imageView.getHeight());
-                    startActivity(intent);
-                    getActivity().overridePendingTransition(0, 0);
-                }
-            });
-            return imageView;
-        }
-    }
 }
