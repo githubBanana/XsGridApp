@@ -6,7 +6,7 @@
          android:layout_height="wrap_content"
          tools:ignore="MergeRootFrame" >
 
-            <GridView
+            <com.xs.xsgridimgload.view.MyGridView
                 android:id="@+id/text_grid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
