@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @version V1.0 <描述当前版本功能>
+ * @version V1.0 <显示 ImageView 的 GridView>
  * @author: Xs
  * @date: 2016-03-28 00:10
  */
