@@ -3,9 +3,15 @@ package com.xs.xsgridimgload.test;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.xs.xsgridimgload.R;
+import com.xs.xsgridimgload.fragment.TextGridFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @version V1.0 <描述当前版本功能>
@@ -20,6 +26,20 @@ public class TestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_layout);
-
+        final TextGridFragment fragment = (TextGridFragment) getSupportFragmentManager().findFragmentById(R.id.text_grid_fragment);
+        findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fragment.importData(initData());
+            }
+        });
+    }
+    private List<String> initData() {
+        List<String> datas = new ArrayList<>();
+        datas.add("#嘻哈丰富2");
+        datas.add("#嘻哈丰富1");
+        datas.add("#嘻哈丰富2");
+        datas.add("#嘻哈丰富5");
+        return datas;
     }
 }

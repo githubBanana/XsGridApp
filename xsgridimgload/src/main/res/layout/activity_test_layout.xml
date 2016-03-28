@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     >
 
     <fragment
-        android:id="@+id/tab"
-        android:name="com.xs.xsgridimgload.fragment.GridFragment"
+        android:id="@+id/image_grid_fragment"
+        android:name="com.xs.xsgridimgload.fragment.ImageGridFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"/>
+
+    <fragment
+        android:layout_below="@+id/image_grid_fragment"
+        android:id="@+id/text_grid_fragment"
+        android:name="com.xs.xsgridimgload.fragment.TextGridFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:text="add data"
+        android:textSize="20dp"/>
+
+</LinearLayout>
