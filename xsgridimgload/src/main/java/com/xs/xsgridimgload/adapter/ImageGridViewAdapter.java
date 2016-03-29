@@ -2,6 +2,7 @@ package com.xs.xsgridimgload.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -64,6 +65,7 @@ public class ImageGridViewAdapter extends BaseAdapter {
 
                 intent.putExtra("width", imageView.getWidth());
                 intent.putExtra("height", imageView.getHeight());
+                Log.i("TAG","imageView.getWidth():"+imageView.getWidth()+" imageView.getHeight():"+imageView.getHeight());
                 mOnListen.touchPic(intent);
             }
         });

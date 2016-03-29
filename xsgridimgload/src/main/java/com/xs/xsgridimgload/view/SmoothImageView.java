@@ -21,8 +21,6 @@ import android.widget.ImageView;
  * 仅限于用于:从一个ScaleType==CENTER_CROP的ImageView，切换到另一个ScaleType=
  * FIT_CENTER的ImageView，或者反之 (当然，得使用同样的图片最好)
  * 
- * @author Dean Tao
- * 
  */
 public class SmoothImageView extends ImageView {
 

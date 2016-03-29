@@ -6,7 +6,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         >
-        <activity android:name=".view.SpaceImageDetailActivity"/>
+        <activity android:name=".view.SpaceImageDetailActivity"
+            android:theme="@style/picTheme.Transparent"/>
 
     </application>
 
